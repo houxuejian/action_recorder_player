@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
 
 import org.jnativehook.GlobalScreen;
 
@@ -52,6 +53,11 @@ public final class MainWindow extends JFrame implements Const{
 	}
 	
 	private MainWindow() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		setTitle("录制动作");
 		setBackground(Color.WHITE);
 		setLocation(WinUtils.WIDTH / 4, WinUtils.HEIGHT / 4);
